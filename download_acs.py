@@ -14,12 +14,12 @@ load_dotenv()
 CENSUS_URL = "https://api.census.gov/data/2024/acs/acs5"
 GEO_PARAMS = {"for": "tract:*", "in": "state:53 county:033"}
 
-LANG_VARS = ["B16004_046E",
+LANGUAGE_VARS = ["B16004_046E",
              "B16004_050E", "B16004_051E", "B16004_052E",
              "B16004_060E", "B16004_061E", "B16004_062E"]
-HEAR_TOTAL_VARS = ["B18102_015E", "B18102_018E",
+ALL_HEARING_VARS = ["B18102_015E", "B18102_018E",
                    "B18102_034E", "B18102_037E"]
-HEAR_DIFF_VARS = ["B18102_016E", "B18102_019E",
+HEARING_DIFFICULTY_VARS = ["B18102_016E", "B18102_019E",
                   "B18102_035E", "B18102_038E"]
 
 
@@ -39,8 +39,8 @@ def get_acs(variables: list[str], key: str) -> pd.DataFrame:
 
 
 key = os.environ.get("CENSUS_API_KEY").strip()
-lang = get_acs(LANG_VARS, key)
-hearing = get_acs(HEAR_TOTAL_VARS + HEAR_DIFF_VARS, key)
+lang = get_acs(ALL_HEARING_VARS, key)
+hearing = get_acs(ALL_HEARING_VARS + HEARING_DIFFICULTY_VARS, key)
 os.makedirs("data", exist_ok=True)
 lang.to_csv("data/b16004_raw.csv", index=False)
 hearing.to_csv("data/b18102_raw.csv", index=False)
