@@ -3,7 +3,7 @@ import pandas as pd
 
 LANGUAGE_PATH = "data/b16004_raw.csv"
 HEARING_PATH = "data/b18102_raw.csv"
-TIGER_PATH = "data/raw/tl_2024_53_tract/tl_2024_53_tract.shp"
+TIGER_PATH = "data/tl_2024_53_tract/tl_2024_53_tract.shp"
 OUTPUT_PATH = "data/cleaned_tracts.gpkg"
 MIN_POPULATION_SIZE = 100
 
@@ -55,8 +55,8 @@ language_raw_data = pd.read_csv(LANGUAGE_PATH, dtype={"GEOID": str})
 # read GEOID as string to prevent leading zeros from being deleted
 hearing_raw_data = pd.read_csv(HEARING_PATH, dtype={"GEOID": str})
 
-print("Raw Language data length: " + len(language_raw_data))
-print("Raw Hearing data length: " + len(hearing_raw_data))
+print("Raw Language data length: ", len(language_raw_data))
+print("Raw Hearing data length: ", len(hearing_raw_data))
 
 
 all_language_columns = [LANGUAGE_ALL] + SPANISH_LIMITED + ASIAN_PACFIC_LIMITED
@@ -65,8 +65,8 @@ all_hearing_coulmns = ALL_HEARING_VARS + HEARING_DIFFICULTY_VARS
 language_data = remove_missing_data(language_raw_data, all_language_columns)
 hearing_data = remove_missing_data(hearing_raw_data, all_hearing_coulmns)
 
-print("After removal of missing data language: " + len(language_data))
-print("After removal of missing data hearing: " + len(hearing_data))
+print("After removal of missing data language: ", len(language_data))
+print("After removal of missing data hearing: ", len(hearing_data))
 
 cleaned_language_data = clean_language_data(language_data)
 cleaned_hearing_data = clean_hearing_data(hearing_data)
@@ -74,10 +74,10 @@ cleaned_hearing_data = clean_hearing_data(hearing_data)
 
 acs = cleaned_language_data.merge(cleaned_hearing_data, on="GEOID")
 
-acs = acs[(acs["lang_total_65"] >= MIN_POPULATION_SIZE)
+acs = acs[(acs["language_total_65"] >= MIN_POPULATION_SIZE)
           & (acs["hearing_total_65"] >= MIN_POPULATION_SIZE)]
 print("After removing tracts with population less than "
-      + MIN_POPULATION_SIZE + ": " + len(acs))
+      + str(MIN_POPULATION_SIZE) + ": ", len(acs))
 
 tracts = gpd.read_file(TIGER_PATH)
 tracts = tracts[tracts["COUNTYFP"] == "033"]
