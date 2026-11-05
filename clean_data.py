@@ -84,4 +84,6 @@ tracts = tracts[tracts["COUNTYFP"] == "033"]
 tracts = tracts[["GEOID", "geometry"]]
 merge_tiger_acs = tracts.merge(acs, on="GEOID")
 
+print("After merge with TIGER data: ", len(merge_tiger_acs))
+
 merge_tiger_acs.to_file(OUTPUT_PATH, driver="GPKG")

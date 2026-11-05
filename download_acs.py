@@ -39,10 +39,11 @@ def get_acs(variables: list[str], key: str) -> pd.DataFrame:
 
 
 key = os.environ.get("CENSUS_API_KEY").strip()
-lang = get_acs(ALL_HEARING_VARS, key)
+lang = get_acs(LANGUAGE_VARS, key)
 hearing = get_acs(ALL_HEARING_VARS + HEARING_DIFFICULTY_VARS, key)
 os.makedirs("data", exist_ok=True)
 lang.to_csv("data/b16004_raw.csv", index=False)
 hearing.to_csv("data/b18102_raw.csv", index=False)
 # Verify shapes
 print("B16004:", lang.shape, "B18102:", hearing.shape)
+# prints (495, 9) and (495, 13) respectively
