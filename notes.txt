@@ -1,0 +1,62 @@
+GEOID:  53033032221
+LANGUAGE
+     B16004_046E  B16004_050E  B16004_051E  B16004_052E  B16004_060E  B16004_061E  B16004_062E
+456          622            0            0            0           32            0            0
+HEARING
+     B18102_016E  B18102_019E  B18102_035E  B18102_038E  B18102_015E  B18102_018E  B18102_034E  B18102_037E
+456            6           10            0            0          200           61          224          137
+CLEANED DATA
+   Spanish_limited_percent  AAPI_limited_percent  hearing_difficulty_percent  language_total_65
+0                      0.0              5.144695                    2.572347                622
+
+GEOID:  53033008900
+LANGUAGE
+     B16004_046E  B16004_050E  B16004_051E  B16004_052E  B16004_060E  B16004_061E  B16004_062E
+129          882           26          229          165            1            2           35
+HEARING
+     B18102_016E  B18102_019E  B18102_035E  B18102_038E  B18102_015E  B18102_018E  B18102_034E  B18102_037E
+129           17          103           16           15          371          135          170          126
+CLEANED DATA
+     Spanish_limited_percent  AAPI_limited_percent  hearing_difficulty_percent  language_total_65
+353                47.619048               4.30839                    18.82793                882
+
+GEOID:  53033009100
+LANGUAGE
+     B16004_046E  B16004_050E  B16004_051E  B16004_052E  B16004_060E  B16004_061E  B16004_062E
+131          957            0            0            0          105           43          549
+HEARING
+     B18102_016E  B18102_019E  B18102_035E  B18102_038E  B18102_015E  B18102_018E  B18102_034E  B18102_037E
+131            0           28            0           50          134          260          387          166
+CLEANED DATA
+     Spanish_limited_percent  AAPI_limited_percent  hearing_difficulty_percent  language_total_65
+355                      0.0             72.831766                    8.236536                957
+
+GEOID:  53033007405
+LANGUAGE
+     B16004_046E  B16004_050E  B16004_051E  B16004_052E  B16004_060E  B16004_061E  B16004_062E
+106          102            0            0            0            0            0            0
+HEARING
+     B18102_016E  B18102_019E  B18102_035E  B18102_038E  B18102_015E  B18102_018E  B18102_034E  B18102_037E
+106            0            0           19            0           24            0           19           59
+CLEANED DATA
+     Spanish_limited_percent  AAPI_limited_percent  hearing_difficulty_percent  language_total_65
+479                      0.0                   0.0                   18.627451                102
+
+B16004_046E  missing data:  0
+B16004_050E  missing data:  0
+B16004_051E  missing data:  0
+B16004_052E  missing data:  0
+B16004_060E  missing data:  0
+B16004_061E  missing data:  0
+B16004_062E  missing data:  0
+B18102_015E  missing data:  0
+B18102_018E  missing data:  0
+B18102_034E  missing data:  0
+B18102_037E  missing data:  0
+B18102_016E  missing data:  0
+B18102_019E  missing data:  0
+B18102_035E  missing data:  0
+B18102_038E  missing data:  0
+Tracts under  100  for language:  13
+King County TIGER tracts:  495
+TIGER tracts not in cleaned data 13
