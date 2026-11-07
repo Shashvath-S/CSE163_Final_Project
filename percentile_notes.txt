@@ -1,0 +1,32 @@
+Spanish Counts
+count    482.000000
+mean       1.491960
+std        4.158287
+min        0.000000
+25%        0.000000
+50%        0.000000
+75%        1.045098
+max       47.619048
+Name: Spanish_limited_percent, dtype: float64
+
+AAPI Counts
+count    482.000000
+mean       9.464828
+std       10.911953
+min        0.000000
+25%        1.335273
+50%        6.222786
+75%       13.324808
+max       72.831766
+Name: AAPI_limited_percent, dtype: float64
+
+Hearing Difficulty Counts
+count    482.000000
+mean      12.361416
+std        7.637251
+min        0.000000
+25%        6.879165
+50%       11.816071
+75%       16.401993
+max       57.861635
+Name: hearing_difficulty_percent, dtype: float64
