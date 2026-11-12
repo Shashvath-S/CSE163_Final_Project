@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+
 # import geopandas
 # import matplotlib
 # import seaborn
@@ -14,13 +15,17 @@ load_dotenv()
 CENSUS_URL = "https://api.census.gov/data/2024/acs/acs5"
 GEO_PARAMS = {"for": "tract:*", "in": "state:53 county:033"}
 
-LANGUAGE_VARS = ["B16004_046E",
-             "B16004_050E", "B16004_051E", "B16004_052E",
-             "B16004_060E", "B16004_061E", "B16004_062E"]
-ALL_HEARING_VARS = ["B18102_015E", "B18102_018E",
-                   "B18102_034E", "B18102_037E"]
-HEARING_DIFFICULTY_VARS = ["B18102_016E", "B18102_019E",
-                  "B18102_035E", "B18102_038E"]
+LANGUAGE_VARS = [
+    "B16004_046E",
+    "B16004_050E",
+    "B16004_051E",
+    "B16004_052E",
+    "B16004_060E",
+    "B16004_061E",
+    "B16004_062E",
+]
+ALL_HEARING_VARS = ["B18102_015E", "B18102_018E", "B18102_034E", "B18102_037E"]
+HEARING_DIFFICULTY_VARS = ["B18102_016E", "B18102_019E", "B18102_035E", "B18102_038E"]
 
 
 def get_acs(variables: list[str], key: str) -> pd.DataFrame:

@@ -13,7 +13,9 @@ print(tracts["hearing_difficulty_percent"].describe())
 
 fig, ax = plt.subplots()
 
-sns.scatterplot(data=tracts, x="Spanish_limited_percent", y="hearing_difficulty_percent", ax=ax)
+sns.scatterplot(
+    data=tracts, x="Spanish_limited_percent", y="hearing_difficulty_percent", ax=ax
+)
 ax.set_xlabel("Spanish Limited English (%)")
 ax.set_ylabel("Hearing Difficulty (%)")
 ax.set_title("Hearing Difficulty vs. Spanish Limited English")
@@ -21,7 +23,9 @@ fig.savefig("plots/spanish_vs_hearing.png")
 
 fig, ax = plt.subplots()
 
-sns.scatterplot(data=tracts, x="AAPI_limited_percent", y="hearing_difficulty_percent", ax=ax)
+sns.scatterplot(
+    data=tracts, x="AAPI_limited_percent", y="hearing_difficulty_percent", ax=ax
+)
 ax.set_xlabel("AAPI Limited English (%)")
 ax.set_ylabel("Hearing Difficulty (%)")
 ax.set_title("Hearing Difficulty vs. Spanish Limited English")
