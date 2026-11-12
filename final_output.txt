@@ -1,0 +1,13 @@
+Spanish_limited_percent zeros: 337
+AAPI_limited_percent zeros: 98
+hearing_difficulty_percent zeros: 18
+Spanish_limited_percent       5.535148
+AAPI_limited_percent          2.057465
+hearing_difficulty_percent    1.069199
+dtype: float64
+Current: Spanish_limited_percent
+Pearson r = 0.08569921419816462, p = 0.06010016816037373
+Spearman rho = 0.06929835876892351, p = 0.12869019367286633
+Current: AAPI_limited_percent
+Pearson r = 0.06575879903701273, p = 0.14943965783540225
+Spearman rho = 0.032092005955960595, p = 0.4821083555647953
