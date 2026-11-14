@@ -15,7 +15,10 @@ ASIAN_PACFIC_LIMITED = ["B16004_060E", "B16004_061E", "B16004_062E"]
 
 ALL_HEARING_VARS = ["B18102_015E", "B18102_018E", "B18102_034E", "B18102_037E"]
 
-HEARING_DIFFICULTY_VARS = ["B18102_016E", "B18102_019E", "B18102_035E", "B18102_038E"]
+HEARING_DIFFICULTY_VARS = ["B18102_016E",
+                           "B18102_019E",
+                           "B18102_035E",
+                           "B18102_038E"]
 
 
 def remove_missing_data(df, columns):
@@ -44,7 +47,9 @@ def clean_hearing_data(df):
     final_df = pd.DataFrame()
     final_df["GEOID"] = df["GEOID"]
     final_df["hearing_total_65"] = all_hearing
-    final_df["hearing_difficulty_percent"] = (hearing_difficulty / all_hearing) * 100
+    final_df["hearing_difficulty_percent"] = (
+        (hearing_difficulty / all_hearing) * 100
+        )
     return final_df
 
 
@@ -56,10 +61,13 @@ def main():
     print("Raw Language data length: ", len(language_raw_data))
     print("Raw Hearing data length: ", len(hearing_raw_data))
 
-    all_language_columns = [LANGUAGE_ALL] + SPANISH_LIMITED + ASIAN_PACFIC_LIMITED
+    all_language_columns = ([LANGUAGE_ALL] +
+                            SPANISH_LIMITED +
+                            ASIAN_PACFIC_LIMITED)
     all_hearing_coulmns = ALL_HEARING_VARS + HEARING_DIFFICULTY_VARS
 
-    language_data = remove_missing_data(language_raw_data, all_language_columns)
+    language_data = remove_missing_data(language_raw_data,
+                                        all_language_columns)
     hearing_data = remove_missing_data(hearing_raw_data, all_hearing_coulmns)
 
     print("After removal of missing data language: ", len(language_data))

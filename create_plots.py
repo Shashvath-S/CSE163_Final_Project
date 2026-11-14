@@ -14,7 +14,10 @@ print(tracts["hearing_difficulty_percent"].describe())
 fig, ax = plt.subplots()
 
 sns.scatterplot(
-    data=tracts, x="Spanish_limited_percent", y="hearing_difficulty_percent", ax=ax
+    data=tracts,
+    x="Spanish_limited_percent",
+    y="hearing_difficulty_percent",
+    ax=ax
 )
 ax.set_xlabel("Spanish Limited English (%)")
 ax.set_ylabel("Hearing Difficulty (%)")
@@ -24,7 +27,10 @@ fig.savefig("plots/spanish_vs_hearing.png")
 fig, ax = plt.subplots()
 
 sns.scatterplot(
-    data=tracts, x="AAPI_limited_percent", y="hearing_difficulty_percent", ax=ax
+    data=tracts,
+    x="AAPI_limited_percent",
+    y="hearing_difficulty_percent",
+    ax=ax
 )
 ax.set_xlabel("AAPI Limited English (%)")
 ax.set_ylabel("Hearing Difficulty (%)")
@@ -33,7 +39,13 @@ fig.savefig("plots/AAPI_vs_hearing.png")
 
 fig, ax = plt.subplots()
 
-tracts.plot(column="hearing_difficulty_percent", ax=ax, legend=True, cmap="OrRd")
+tracts.plot(
+    column="hearing_difficulty_percent",
+    ax=ax,
+    legend=True,
+    legend_kwds={"label": "Hearing Difficulty", "shrink": 0.7},
+    cmap="OrRd",
+)
 ax.set_title("Hearing Difficulty among adults 65+ in King County, Washington")
 ax.set_axis_off()
 fig.savefig("plots/hearing_map.png")

@@ -19,13 +19,16 @@ def pick_high_tracts(cleaned_data):
     high_spanish_tract = cleaned_data.sort_values(
         "Spanish_limited_percent", ascending=False
     )["GEOID"].iloc[0]
-    high_AAPI_tract = cleaned_data.sort_values("AAPI_limited_percent", ascending=False)[
-        "GEOID"
-    ].iloc[0]
-    near_min_pop_cutoff = cleaned_data.sort_values("language_total_65", ascending=True)[
-        "GEOID"
-    ].iloc[0]
-    return [random_tract, high_spanish_tract, high_AAPI_tract, near_min_pop_cutoff]
+    high_AAPI_tract = cleaned_data.sort_values(
+        "AAPI_limited_percent",
+        ascending=False)["GEOID"].iloc[0]
+    near_min_pop_cutoff = cleaned_data.sort_values(
+        "language_total_65",
+        ascending=True)["GEOID"].iloc[0]
+    return [random_tract,
+            high_spanish_tract,
+            high_AAPI_tract,
+            near_min_pop_cutoff]
 
 
 def show_tract_data(geoid, language_raw_df, hearing_raw_df, cleaned_data):
@@ -35,9 +38,12 @@ def show_tract_data(geoid, language_raw_df, hearing_raw_df, cleaned_data):
 
     print("GEOID: ", geoid)
     print("LANGUAGE")
-    print(language_geoid_row[[LANGUAGE_ALL] + SPANISH_LIMITED + ASIAN_PACFIC_LIMITED])
+    print(language_geoid_row[[LANGUAGE_ALL] +
+          SPANISH_LIMITED +
+          ASIAN_PACFIC_LIMITED])
     print("HEARING")
-    print(hearing_geoid_row[HEARING_DIFFICULTY_VARS + ALL_HEARING_VARS])
+    print(hearing_geoid_row[HEARING_DIFFICULTY_VARS +
+                            ALL_HEARING_VARS])
     print("CLEANED DATA")
     print(
         cleaned_geoid_row[
@@ -66,16 +72,27 @@ def main():
     print(language_raw_data["GEOID"].dtype, language_raw_data["GEOID"].iloc[0])
 
     for geoid in pick_high_tracts(cleaned_data):
-        show_tract_data(geoid, language_raw_data, hearing_raw_data, cleaned_data)
+        show_tract_data(geoid,
+                        language_raw_data,
+                        hearing_raw_data,
+                        cleaned_data)
 
     count_missing_data(
-        language_raw_data, [LANGUAGE_ALL] + SPANISH_LIMITED + ASIAN_PACFIC_LIMITED
+        language_raw_data,
+        [LANGUAGE_ALL] +
+        SPANISH_LIMITED +
+        ASIAN_PACFIC_LIMITED
     )
-    count_missing_data(hearing_raw_data, ALL_HEARING_VARS + HEARING_DIFFICULTY_VARS)
+    count_missing_data(hearing_raw_data,
+                       ALL_HEARING_VARS +
+                       HEARING_DIFFICULTY_VARS)
     small_tracts = language_raw_data[
         language_raw_data[LANGUAGE_ALL] < MIN_POPULATION_SIZE
     ]
-    print("Tracts under ", MIN_POPULATION_SIZE, " for language: ", len(small_tracts))
+    print("Tracts under ",
+          MIN_POPULATION_SIZE,
+          " for language: ",
+          len(small_tracts))
 
     tracts = gpd.read_file(TIGER_PATH)
     tracts = tracts[tracts["COUNTYFP"] == "033"]
