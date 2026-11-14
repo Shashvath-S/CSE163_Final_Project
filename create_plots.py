@@ -34,7 +34,7 @@ sns.scatterplot(
 )
 ax.set_xlabel("AAPI Limited English (%)")
 ax.set_ylabel("Hearing Difficulty (%)")
-ax.set_title("Hearing Difficulty vs. Spanish Limited English")
+ax.set_title("Hearing Difficulty vs. AAPI Limited English")
 fig.savefig("plots/AAPI_vs_hearing.png")
 
 fig, ax = plt.subplots()

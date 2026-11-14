@@ -61,7 +61,20 @@ def show_tract_data(geoid, language_raw_df, hearing_raw_df, cleaned_data):
 def count_missing_data(df, columns):
     for column in columns:
         missing_data = df[df[column] < 0]
-        print(column, " missing data: ", len(missing_data))
+        assert len(missing_data) == 0, column + " has missing data."
+
+def assert_clean_data(data):
+    assert len(data) == 482
+    geoids_len = data["GEOID"].str.len()
+    assert (geoids_len == 11).all(), "Some GEOIDS not length 11"
+    assert data["GEOID"].nunique() == len(data)
+    columns = ["Spanish_limited_percent",
+                "AAPI_limited_percent",
+                "hearing_difficulty_percent"]
+    for col in columns:
+        assert data[col].isna().sum() == 0 # no missing value
+        assert data[col].min() >= 0 # no negative value
+        assert data[col].max() <= 100 # no shares above 100%
 
 
 def main():
@@ -93,6 +106,9 @@ def main():
           MIN_POPULATION_SIZE,
           " for language: ",
           len(small_tracts))
+
+    assert len(language_raw_data) == 495
+    assert len(language_raw_data) - len(cleaned_data) == 13
 
     tracts = gpd.read_file(TIGER_PATH)
     tracts = tracts[tracts["COUNTYFP"] == "033"]
