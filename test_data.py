@@ -63,18 +63,19 @@ def count_missing_data(df, columns):
         missing_data = df[df[column] < 0]
         assert len(missing_data) == 0, column + " has missing data."
 
+
 def assert_clean_data(data):
     assert len(data) == 482
     geoids_len = data["GEOID"].str.len()
     assert (geoids_len == 11).all(), "Some GEOIDS not length 11"
     assert data["GEOID"].nunique() == len(data)
     columns = ["Spanish_limited_percent",
-                "AAPI_limited_percent",
-                "hearing_difficulty_percent"]
+               "AAPI_limited_percent",
+               "hearing_difficulty_percent"]
     for col in columns:
-        assert data[col].isna().sum() == 0 # no missing value
-        assert data[col].min() >= 0 # no negative value
-        assert data[col].max() <= 100 # no shares above 100%
+        assert data[col].isna().sum() == 0  # no missing value
+        assert data[col].min() >= 0  # no negative value
+        assert data[col].max() <= 100  # no shares above 100%
 
 
 def main():
