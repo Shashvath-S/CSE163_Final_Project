@@ -23,6 +23,7 @@ def main():
     create_plots.main()
     print("6. Check Validity of data")
     validity.main()
+    print("All code ran successfully!")
 
 
 if __name__ == "__main__":

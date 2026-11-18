@@ -1,12 +1,14 @@
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 sns.set_theme()
 
 
 def main():
     tracts = gpd.read_file("data/cleaned_tracts.gpkg")
+    os.makedirs("plots", exist_ok=True)
 
     print(tracts["Spanish_limited_percent"].describe())
     print(tracts["AAPI_limited_percent"].describe())
